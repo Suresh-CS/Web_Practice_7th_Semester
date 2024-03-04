@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Guessing Game</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  #guessInput {
+    width: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  #submitGuess {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h1>Number Guessing Game</h1>
+<p>Guess a number between 1 and 100:</p>
+<input type="number" id="guessInput" min="1" max="100">
+<button id="submitGuess">Submit Guess</button>
+
+<p id="result"></p>
+
+<script>
+  const randomNumber = Math.floor(Math.random() * 100) + 1;
+  const guessInput = document.getElementById('guessInput');
+  const submitButton = document.getElementById('submitGuess');
+  const resultDisplay = document.getElementById('result');
+
+  let attempts = 0;
+
+  submitButton.addEventListener('click', function() {
+    const guess = parseInt(guessInput.value);
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+      resultDisplay.textContent = "Please enter a valid number between 1 and 100.";
+    } else {
+      attempts++;
+      if (guess === randomNumber) {
+        resultDisplay.textContent = `Congratulations! You've guessed the number ${randomNumber} correctly in ${attempts} attempts.`;
+        submitButton.disabled = true;
+      } else if (guess < randomNumber) {
+        resultDisplay.textContent = "Too low. Try again.";
+      } else {
+        resultDisplay.textContent = "Too high. Try again.";
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
