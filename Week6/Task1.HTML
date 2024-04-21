@@ -7,21 +7,24 @@
 <style>
   body {
     font-family: Arial, sans-serif;
+    background-color: azure;
   }
   #taskInput {
+    background-color: rgb(205, 43, 119);
     width: 60%;
     padding: 10px;
     margin-bottom: 10px;
+    align-items: center;
   }
   #addButton {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: rgb(51, 153, 63);
     color: white;
     border: none;
     cursor: pointer;
   }
   #taskList {
-    list-style-type: none;
+
     padding: 0;
   }
   .taskItem {
@@ -35,14 +38,13 @@
 <h1>To-Do List</h1>
 <input type="text" id="taskInput" placeholder="Enter your task">
 <button id="addButton">Add Task</button>
-
 <ul id="taskList"></ul>
+
 
 <script>
   const taskInput = document.getElementById('taskInput');
   const addButton = document.getElementById('addButton');
   const taskList = document.getElementById('taskList');
-
   addButton.addEventListener('click', addTask);
 
   function addTask() {

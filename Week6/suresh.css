@@ -1,0 +1,7 @@
+span > p {
+    background-color: red;
+}
+
+#myid > p  {
+    background-color: green;
+}
